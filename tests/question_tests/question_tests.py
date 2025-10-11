@@ -2,9 +2,18 @@
 import unittest
 
 #follow this example to add questions b, c, and d for testing including their functions
-from src.question_c.question_c import get_assessment_value, get_tax_assessed    
-
+from src.question_a.question_a import reverse_string    
+from src.question_b.question_b import is_prime
+from src.question_c.question_c import get_assessment_value, get_tax_assessed
 class Test_Config(unittest.TestCase):
+
+    def test_reverse_string(self):
+        self.assertEqual(reverse_string("hello"), "olleh")
+    
+    def test_is_prime(self):
+        self.assertFalse(is_prime(4))
+        self.assertTrue(is_prime(5))
+        self.assertTrue(is_prime(11))
 
     def test_get_assessment_value_10000(self):
         self.assertEqual(get_assessment_value(10000), 6000) # 10000 * 0.6 = 6000
