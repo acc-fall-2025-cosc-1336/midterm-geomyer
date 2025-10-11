@@ -2,11 +2,12 @@
 import unittest
 
 #follow this example to add questions b, c, and d for testing including their functions
-from src.question_a.question_a import reverse_string
+from src.question_b.question_b import is_prime
 
 class Test_Config(unittest.TestCase):
 
-    def reverse_string(self):
-        self.assertEqual(True, reverse_string())
-
-
+    def test_is_prime(self):
+        self.assertEqual(True, is_prime(5))
+        self.assertEqual(False, is_prime(4))
+        self.assertEqual(True, is_prime(11))
+        
