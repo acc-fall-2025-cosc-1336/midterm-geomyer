@@ -5,6 +5,8 @@ import unittest
 from src.question_a.question_a import reverse_string    
 from src.question_b.question_b import is_prime
 from src.question_c.question_c import get_assessment_value, get_tax_assessed
+from src.question_d.question_d import get_age
+
 class Test_Config(unittest.TestCase):
 
     def test_reverse_string(self):
@@ -24,6 +26,14 @@ class Test_Config(unittest.TestCase):
         self.assertEqual(round(get_tax_assessed(6000), 2), 43.20) # 6000 * 0.0072 = 43.20
     def test_get_tax_assessed_10000(self):
         self.assertEqual(round(get_tax_assessed(10000), 2), 72.00) # 10000 * 0.0072 = 72.00
+
+        def test_get_age(self):
+            self.assertEqual(get_age(1), "Infant")
+            self.assertEqual(get_age(2), "Child")
+            self.assertEqual(get_age(14), "Teenager")
+            self.assertEqual(get_age(20), "Adult")
+            self.assertEqual(get_age(-1), "Invalid age")
+            self.assertEqual(get_age(130), "Invalid age")
 
 
 
