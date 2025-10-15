@@ -1,29 +1,25 @@
 #add import
-from question_d import get_age
+from question_d import get_person_category
 
 def main():
     while True:
         try:
-            age = int(input("Enter your age: "))
-            if age < 0 or age >= 125:
-                print("Invalid age")
-            elif age <= 1:
-                print("Infant")
-            elif age <= 13:
-                print("Child")
-            elif age >= 14 and age < 20:
-                print("Teenager")
-            else:
-                print("Adult")
+            user_input = int(input("Enter your age: "))
+            if user_input < 0:
+                print("Invalid Input.")
+                break
+            category = get_person_category(user_input)
+            print(f"Age {user_input} is categorized as: {category}")
         except ValueError:
-            print("Please enter a valid integer for age.")
-        
+            print("Please enter a valid integer for age.")  
         again = input("Do you want to check another age? (y/n): ").strip().lower()
         if again == 'n':
             print("Goodbye!")
             break
         elif again != 'y':
-            print("Invalid input. Please enter 'y' or 'n'.")    
+            print("Invalid input. Please enter 'y' or 'n'.") 
+
 
 if __name__ == "__main__":
+    
     main()

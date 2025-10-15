@@ -5,13 +5,14 @@ import unittest
 from src.question_a.question_a import reverse_string    
 from src.question_b.question_b import is_prime
 from src.question_c.question_c import get_assessment_value, get_tax_assessed
-from src.question_d.question_d import get_age
+from src.question_d.question_d import get_person_category
 
 class Test_Config(unittest.TestCase):
 
     def test_reverse_string(self):
         self.assertEqual(reverse_string("hello"), "olleh")
-    
+        self.assertEqual(reverse_string("Python"), "nohtyP")
+
     def test_is_prime(self):
         self.assertFalse(is_prime(4))
         self.assertTrue(is_prime(5))
@@ -27,13 +28,12 @@ class Test_Config(unittest.TestCase):
     def test_get_tax_assessed_10000(self):
         self.assertEqual(round(get_tax_assessed(10000), 2), 72.00) # 10000 * 0.0072 = 72.00
 
-        def test_get_age(self):
-            self.assertEqual(get_age(1), "Infant")
-            self.assertEqual(get_age(2), "Child")
-            self.assertEqual(get_age(14), "Teenager")
-            self.assertEqual(get_age(20), "Adult")
-            self.assertEqual(get_age(-1), "Invalid age")
-            self.assertEqual(get_age(130), "Invalid age")
-
-
-
+    def test_get_person_category(self):
+        self.assertEqual(get_person_category(0), "Infant")
+        self.assertEqual(get_person_category(1), "Infant")
+        self.assertEqual(get_person_category(5), "Child")
+        self.assertEqual(get_person_category(12), "Child")
+        self.assertEqual(get_person_category(15), "Teenager")
+        self.assertEqual(get_person_category(19), "Teenager")
+        self.assertEqual(get_person_category(20), "Adult")
+        self.assertEqual(get_person_category(70), "Adult")
