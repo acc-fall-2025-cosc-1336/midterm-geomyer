@@ -2,16 +2,16 @@
 import unittest
 
 #follow this example to add questions b, c, and d for testing including their functions
-from src.question_a.question_a import reverse_string    
+from src.question_a.question_a import reverse_string_no_slice as reverse_string   
 from src.question_b.question_b import is_prime
 from src.question_c.question_c import get_assessment_value, get_tax_assessed
 from src.question_d.question_d import get_person_category
 
 class Test_Config(unittest.TestCase):
 
-    def test_reverse_string(self):
-        self.assertEqual(reverse_string("hello"), "olleh")
-        self.assertEqual(reverse_string("Python"), "nohtyP")
+    def test_reverse_string_no_slice(self):
+        self.assertEqual(reverse_string("Hello World"), "dlroW olleH")
+    
 
     def test_is_prime(self):
         self.assertFalse(is_prime(4))
